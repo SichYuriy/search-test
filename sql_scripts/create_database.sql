@@ -1,0 +1,1 @@
+CREATE DATABASE `properties_database`;

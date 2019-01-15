@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Properties</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+<div id="app">
+    <input v-model="propertySearch"/>
+    <button v-on:click="loadProperties">Fetch properties</button>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>line 1</th>
+            <th>line 2</th>
+            <th>city</th>
+            <th>state</th>
+            <th>zip</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="property in properties">
+            <td>{{ property.id }}</td>
+            <td>{{ property.addressLine1 }}</td>
+            <td>{{ property.addressLine2 }}</td>
+            <td>{{ property.city }}</td>
+            <td>{{ property.state }}</td>
+            <td>{{ property.zip }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <input v-model="associationSearch"/>
+    <button v-on:click="loadAssociations">Fetch associations</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="association in associations">
+                <td>{{ association.id }}</td>
+                <td>{{ association.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<script src="app.js"></script>
+</html>
