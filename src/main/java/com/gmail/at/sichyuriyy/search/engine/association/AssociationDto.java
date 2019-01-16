@@ -1,6 +1,5 @@
 package com.gmail.at.sichyuriyy.search.engine.association;
 
-import lombok.Builder;
 import lombok.Data;
 
 @Data
