@@ -18,6 +18,9 @@ let vm = new Vue({
                 .then(response => response.json())
                 .then(data => data.content)
                 .then(associations => this.associations = associations)
+        },
+        updateIndex: function () {
+            fetch('/properties/search_index', {method: 'POST'})
         }
     }
 });

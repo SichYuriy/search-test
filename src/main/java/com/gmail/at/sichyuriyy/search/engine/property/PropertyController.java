@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,5 +18,10 @@ public class PropertyController {
     public Page<PropertyDto> search(@RequestParam String query, Pageable pageable) {
         return propertyService.search(query, pageable)
                 .map(PropertyDto::new);
+    }
+
+    @PostMapping("/properties/search_index")
+    public void createSearchIndex() {
+        propertyService.updatePropertySearchIndex();
     }
 }

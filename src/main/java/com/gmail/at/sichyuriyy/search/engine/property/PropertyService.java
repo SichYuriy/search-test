@@ -10,8 +10,13 @@ import org.springframework.stereotype.Service;
 public class PropertyService {
 
     private final PropertyRepository propertyRepository;
+    private final PropertySearchRepository propertySearchRepository;
 
     public Page<Property> search(String query, Pageable pageable) {
-        return propertyRepository.search(query, pageable);
+        return propertySearchRepository.search(query, pageable);
+    }
+
+    public void updatePropertySearchIndex() {
+        propertySearchRepository.updateIndex();
     }
 }
